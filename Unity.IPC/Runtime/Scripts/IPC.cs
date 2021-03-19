@@ -52,7 +52,7 @@ namespace IpcLib
                 }
             }
 
-            var ipc = $"{ipcName}-{ipcId}";
+            var ipc = string.IsNullOrEmpty(ipcId) ? ipcName : $"{ipcName}-{ipcId}";
             _client = new IpcClient(ipc);
 
             Log($"IPC - {ipc}");
