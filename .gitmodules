@@ -1,0 +1,3 @@
+[submodule "Dependencies/CSNamedPipes"]
+	path = Dependencies/CSNamedPipes
+	url = git@github.com:starburst997/CSNamedPipes.git

@@ -1,0 +1,20 @@
+{
+  "name": "com.unity.ipc",
+  "version": "1.0.0",
+  "displayName": "IPC",
+  "description": "",
+  "unity": "2019.3",
+  "unityRelease": "5f1",
+  "dependencies": {
+
+ },
+ "keywords": [
+    "ipc",
+    "namedpipe"
+  ],
+  "author": {
+    "name": "Jean-Denis Boivin",
+    "email": "jd@boiv.in",
+    "url": "https://jd.boiv.in"
+  }
+}
