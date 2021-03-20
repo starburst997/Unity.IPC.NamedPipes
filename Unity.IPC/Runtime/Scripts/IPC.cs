@@ -24,6 +24,24 @@ namespace IpcLib
         
         public UnityEvent<string> message;
 
+        private static string _ipcId = null;
+        public static string GetIPC()
+        {
+            if (_ipcId != null) return _ipcId;
+            
+            // Check if we have a ipc id sent from command line
+            var args = System.Environment.GetCommandLineArgs();
+            var ipcId = "";
+            for (var i = 0; i < args.Length; i++) {
+                if (args[i] == "-ipc" && i < args.Length - 1) {
+                    ipcId = args [i + 1];
+                }
+            }
+
+            _ipcId = ipcId;
+            return ipcId;
+        }
+        
         private void Awake()
         {
             if (Instance == null)
@@ -43,15 +61,7 @@ namespace IpcLib
             
             _hasText = text != null;
 
-            // Check if we have a ipc id sent from command line
-            var args = System.Environment.GetCommandLineArgs();
-            var ipcId = "";
-            for (var i = 0; i < args.Length; i++) {
-                if (args[i] == "-ipc" && i < args.Length - 1) {
-                    ipcId = args [i + 1];
-                }
-            }
-
+            var ipcId = GetIPC();
             var ipc = string.IsNullOrEmpty(ipcId) ? ipcName : $"{ipcName}-{ipcId}";
             _client = new IpcClient(ipc);
 
