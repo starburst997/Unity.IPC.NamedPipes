@@ -9,6 +9,8 @@ namespace IpcLib
     public class IPC : MonoBehaviour
     {
         public static IPC Instance { get; private set; }
+        
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public static bool Connected { get; private set; }
         
         public const string Tag = "IPC";
@@ -16,15 +18,17 @@ namespace IpcLib
         private IpcClient _client;
 
         // Only useful for debugging
-        public bool debug = false;
+        public bool debug;
         public Text text;
         private bool _hasText;
 
         public string ipcName = "notessimo-ipc";
         
         public UnityEvent<string> message;
+        public UnityEvent connect;
+        public UnityEvent disconnect;
 
-        private static string _ipcId = null;
+        private static string _ipcId;
         public static string GetIPC()
         {
             if (_ipcId != null) return _ipcId;
@@ -90,12 +94,16 @@ namespace IpcLib
         {
             Connected = true;
             
+            connect?.Invoke();
+            
             Log($"IPC - Connected");
         }
 
         private void OnDisconnected()
         {
             Connected = false;
+            
+            disconnect?.Invoke();
             
             Log($"IPC - Disconnected");
         }

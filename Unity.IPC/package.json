@@ -1,6 +1,6 @@
 {
-  "name": "com.unity.ipc",
-  "version": "1.0.0",
+  "name": "jd.boivin.ipc",
+  "version": "1.0.1",
   "displayName": "IPC",
   "description": "",
   "unity": "2019.3",
