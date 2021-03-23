@@ -80,7 +80,7 @@ namespace IpcLib
 
         public void Send(string data)
         {
-            _client.Send(data);
+            _client.Send(data, true, true);
         }
 
         private void OnMessage(string data)

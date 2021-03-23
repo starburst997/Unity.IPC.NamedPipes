@@ -7,8 +7,8 @@ echo Makes sure to install ".NET Core 5 SDK" https://docs.microsoft.com/en-us/do
 
 REM Copy DLLs
 
-copy Dependencies\CSNamedPipes\IpcLib\bin\Release\netstandard2.0\IpcLib.dll Unity.IPC\Runtime\Plugins\IpcLib.dll
-copy Dependencies\CSNamedPipes\IpcLib\bin\Release\netstandard2.0\IpcLib.pdb Unity.IPC\Runtime\Plugins\IpcLib.pdb
+copy Dependencies\CSNamedPipes\IpcLib\bin\Release\netstandard2.0\IpcLib.dll Unity.IPC.NamedPipes\Runtime\Plugins\IpcLib.dll
+copy Dependencies\CSNamedPipes\IpcLib\bin\Release\netstandard2.0\IpcLib.pdb Unity.IPC.NamedPipes\Runtime\Plugins\IpcLib.pdb
 
 @pause
 popd
